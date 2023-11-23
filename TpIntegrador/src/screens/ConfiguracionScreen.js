@@ -1,5 +1,3 @@
-
-
 import {Text, StyleSheet, SafeAreaView, TextInput, ImageBackground } from 'react-native'
 import React, { useState, useEffect } from 'react';
 import MessageConstants from '../Constants/MessageConstants'
@@ -7,7 +5,7 @@ import ReusableButton from '../Components/ReusableButton';
 import DataService from '../Services/DataService';
 import ModalMessage from '../Components/ModalMessage';
 
-const Configuration = () => {
+const ConfiguracionScreen = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [videoUrl, setUrlVideo] = useState('');
     const [musicUrl, setUrlMusic] = useState('');

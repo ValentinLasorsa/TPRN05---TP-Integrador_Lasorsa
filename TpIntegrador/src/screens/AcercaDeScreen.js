@@ -9,7 +9,7 @@ import ReusableButton from '../Components/ReusableButton';
 let dataService = new DataService();
 const NOMBRE_APP = 'Gabriel Chediex'
 
-const AboutScreen = () => {
+const AcercaDeScreen = () => {
 
 const [bgImage, setBgImage] = useState(null);
 const [fontsLoaded, setFontsLoaded] = useState(false);

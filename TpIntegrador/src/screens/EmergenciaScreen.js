@@ -8,7 +8,7 @@ import MessageConstants from '../Constants/MessageConstants'
 
 let dataService = new DataService();
 
-const EmergencyCall = () =>{
+const EmergencyScreen = () =>{
 
 const [{ x, y, z }, setData] = useState({
     x: 0,

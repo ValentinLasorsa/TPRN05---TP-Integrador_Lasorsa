@@ -9,7 +9,7 @@ import ReusableButton from '../Components/ReusableButton';
 
 let dataService = new DataService()
 
-const ChangeBgScreen = () => {
+const CambioFondoScreen = () => {
 
   const [bgImage, setBgImage] = useState(null);
   const [startCamera, setStartCamera] = useState(false)

@@ -3,10 +3,10 @@ import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Configuration from './src/screens/ConfiguracionScreen';
-import ChangeBgScreen from './src/screens/CambioFondoScreen';
-import AboutScreen from './src/screens/AcercaDeScreen';
-import EmergencyCall from './src/screens/EmergenciaScreen';
+import ConfiguracionScreen from './src/screens/ConfiguracionScreen';
+import CambioFondoScreen from './src/screens/CambioFondoScreen';
+import AcercaDeScreen from './src/screens/AcercaDeScreen'
+import EmergenciaScreen from './src/screens/EmergenciaScreen'
 import MultimediaScreen from './src/screens/MultimediaScreen';
 
 const Tab = createBottomTabNavigator();
@@ -39,10 +39,10 @@ const App = () => {
             tabBarInactiveTintColor: 'gray',
           })}
         >
-          <Tab.Screen name="Configuración" component={Configuration} />
-          <Tab.Screen name="Imagen fondo" component={ChangeBgScreen}/>
-          <Tab.Screen name="Barcode" component={AboutScreen}/>
-          <Tab.Screen name="Emergente" component={EmergencyCall} />
+          <Tab.Screen name="Configuración" component={ConfiguracionScreen} />
+          <Tab.Screen name="Imagen fondo" component={CambioFondoScreen}/>
+          <Tab.Screen name="Barcode" component={AcercaDeScreen}/>
+          <Tab.Screen name="Emergente" component={EmergenciaScreen} />
           <Tab.Screen name="Video" component={MultimediaScreen}/>
         </Tab.Navigator>
   </NavigationContainer>
