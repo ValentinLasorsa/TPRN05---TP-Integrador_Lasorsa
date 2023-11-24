@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import MessageConstants from "../Constants/MessageConstants";
+import msjConstants from "../constants/msjConstants";
 
 class AsyncStorageUtil{
 
@@ -30,7 +30,7 @@ class AsyncStorageUtil{
             const jsonString = JSON.stringify(object)
             returnValue=await AsyncStorage.setItem(key,jsonString);
         }catch(e){
-            console.error(MessageConstants.MSG_INCOMPLETE_FIELDS, e)
+            console.error(msjConstants.MSG_INCOMPLETE_FIELDS, e)
         }
         return returnValue;
     }
@@ -75,7 +75,7 @@ class AsyncStorageUtil{
                 }
             }
         }catch(e){
-            console.error(MessageConstants.MSG_INCOMPLETE_FIELDS, e)
+            console.error(msjConstants.MSG_INCOMPLETE_FIELDS, e)
         }
         return returnValue;
     }

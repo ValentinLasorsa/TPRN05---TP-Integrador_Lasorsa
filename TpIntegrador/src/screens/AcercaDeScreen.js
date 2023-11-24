@@ -4,10 +4,10 @@ import DataService from '../Services/DataService';
 import * as Font from 'expo-font';
 import * as Clipboard from 'expo-clipboard';
 import { BarCodeScanner } from 'expo-barcode-scanner';
-import ReusableButton from '../Components/ReusableButton';
+import BotonReusable from '../components/botonReusable';
 
 let dataService = new DataService();
-const NOMBRE_APP = 'Gabriel Chediex'
+const NOMBRE_APP = 'Valentín Lasorsa'
 
 const AcercaDeScreen = () => {
 
@@ -28,7 +28,6 @@ const [scanQR, setScanQR] = useState(false);
     const profile = await dataService.getData();
     if(profile.BackgroundURI !== null)
     {
-    //const profile = await dataService.getData();
     setBgImage(profile.BackgroundURI);
     }
   }
@@ -67,7 +66,7 @@ const [scanQR, setScanQR] = useState(false);
           ) : (
             <></>
           )}
-          <ReusableButton event={() => setScanQR(true)} text='Escanear APP' style={styles.button} />
+          <BotonReusable event={() => setScanQR(true)} text='Escanear APP' style={styles.button} />
           {scanQR ? (
             <>
               <BarCodeScanner
@@ -75,8 +74,8 @@ const [scanQR, setScanQR] = useState(false);
                 style={StyleSheet.absoluteFillObject}
               />
               {scanned && <>
-                <ReusableButton event={() => setScanned(false)} text='Escanear de nuevo' style={styles.button} />
-                <ReusableButton event={() => setScanQR(false)} text='Cerrar escanner' style={styles.button} />
+                <BotonReusable event={() => setScanned(false)} text='Escanear de nuevo' style={styles.button} />
+                <BotonReusable event={() => setScanQR(false)} text='Cerrar escanner' style={styles.button} />
               </>
               }
             </>
@@ -114,4 +113,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default AboutScreen;
+export default AcercaDeScreen;

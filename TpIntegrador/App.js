@@ -30,7 +30,7 @@ const App = () => {
               else if (route.name === 'Emergente') {
                 iconName = focused ? 'call' : 'call-outline';
               } 
-              else if(route.name === 'Barcode'){
+              else if(route.name === 'Acerca'){
                 iconName = focused ? 'md-barcode' : 'md-barcode-outline'
               }
               return <Ionicons name={iconName} size={size} color={color} />;
@@ -41,7 +41,7 @@ const App = () => {
         >
           <Tab.Screen name="Configuración" component={ConfiguracionScreen} />
           <Tab.Screen name="Imagen fondo" component={CambioFondoScreen}/>
-          <Tab.Screen name="Barcode" component={AcercaDeScreen}/>
+          <Tab.Screen name="Acerca" component={AcercaDeScreen}/>
           <Tab.Screen name="Emergente" component={EmergenciaScreen} />
           <Tab.Screen name="Video" component={MultimediaScreen}/>
         </Tab.Navigator>

@@ -3,12 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { Accelerometer} from 'expo-sensors';
 import { Vibration } from 'react-native';
 import DataService from '../Services/DataService';
-import ModalMessage from '../Components/ModalMessage'
-import MessageConstants from '../Constants/MessageConstants'
+import ModalMsj from '../components/modalMsj';
+import msjConstants from '../constants/msjConstants';
 
 let dataService = new DataService();
 
-const EmergencyScreen = () =>{
+const EmergenciaScreen = () =>{
 
 const [{ x, y, z }, setData] = useState({
     x: 0,
@@ -46,7 +46,7 @@ const _subscribe = () => {
             if (PhoneNumber) {
               callNumber(PhoneNumber)
             } else {
-              setMensajeModal(MessageConstants.MSG_UNDEFINED_PHONE);
+              setMensajeModal(msjConstants.MSG_UNDEFINED_PHONE);
               setVisibleModal(true)
             }
             Vibration.vibrate();
@@ -59,7 +59,7 @@ const _subscribe = () => {
               if (PhoneNumber) {
                 callNumber(PhoneNumber)
               } else {
-                setMensajeModal(MessageConstants.MSG_UNDEFINED_PHONE);
+                setMensajeModal(msjConstants.MSG_UNDEFINED_PHONE);
                 setModalVisible(true)
               }
             Vibration.vibrate();
@@ -96,7 +96,7 @@ const _subscribe = () => {
     <SafeAreaView style={[styles.container]}>
       <ImageBackground source={bgImage ? {uri: bgImage } : null} style={styles.image}>
         <Text style={{backgroundColor:'white', fontSize: 20, width: '80%', textAlign:'center'}}>Agita el celular para llamar a tu contacto de emergencia</Text>
-        <ModalMessage msg={mensajeModal} modalVisible={visibleModal} setVisibleModal={setVisibleModal} success={success}/>
+        <ModalMsj msg={mensajeModal} modalVisible={visibleModal} setVisibleModal={setVisibleModal} success={success}/>
       </ImageBackground>
     </SafeAreaView>
   )
@@ -120,4 +120,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default EmergencyCall;
+export default EmergenciaScreen;

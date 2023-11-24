@@ -5,7 +5,7 @@ import React from 'react'
 import * as ImagePicker from 'expo-image-picker';
 import DataService from '../Services/DataService';
 import { Camera, CameraType } from 'expo-camera';
-import ReusableButton from '../Components/ReusableButton';
+import BotonReusable from '../components/botonReusable';
 
 let dataService = new DataService()
 
@@ -73,7 +73,7 @@ const CambioFondoScreen = () => {
   return (
     <SafeAreaView style={[styles.container]}>
       <ImageBackground source={bgImage ? {uri: bgImage } : null} style={styles.image}>
-        <ReusableButton event={pickImage} text='Pick image from galery' style={styles.button} />
+        <BotonReusable event={pickImage} text='Pick image from galery' style={styles.button} />
         {startCamera ? (
           <Camera
             style={{ flex: 1, width: "100%" }}
@@ -94,10 +94,10 @@ const CambioFondoScreen = () => {
                 <TouchableOpacity
                   onPress={TakePicture}
                   style={{
-                    width: 70,
-                    height: 70,
-                    bottom: 125,
-                    borderRadius: 50,
+                    width: 80,
+                    height: 80,
+                    bottom: 135,
+                    borderRadius: 60,
                     backgroundColor: '#fff'
                   }}
                 />
@@ -106,7 +106,7 @@ const CambioFondoScreen = () => {
           </Camera>
         ) : (
           <>
-            <ReusableButton event={StartCamera} text='Take photo' style={styles.button} />
+            <BotonReusable event={StartCamera} text='Take photo' style={styles.button} />
           </>
         )}
       </ImageBackground>
@@ -124,8 +124,8 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 20,
-    width: 300,
-    height: 60,
+    width: 280,
+    height: 65,
     backgroundColor: 'black',
     borderRadius: 10
   },
@@ -146,4 +146,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ChangeBgScreen;
+export default CambioFondoScreen;

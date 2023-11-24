@@ -1,9 +1,10 @@
 import {Text, StyleSheet, SafeAreaView, TextInput, ImageBackground } from 'react-native'
 import React, { useState, useEffect } from 'react';
-import MessageConstants from '../Constants/MessageConstants'
-import ReusableButton from '../Components/ReusableButton';
+import msjConstants from '../constants/msjConstants';
+import BotonReusable from '../components/botonReusable';
 import DataService from '../Services/DataService';
-import ModalMessage from '../Components/ModalMessage';
+import ModalMsj from '../components/modalMsj';
+import msjConstants from '../constants/msjConstants';
 
 const ConfiguracionScreen = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -11,7 +12,7 @@ const ConfiguracionScreen = () => {
     const [musicUrl, setUrlMusic] = useState('');
     const [visibleModal, setVisibleModal] = useState(false);
     const [success, setSuccess] = useState(false);
-    const [modalMessage, setModalMessage] = useState('');
+    const [modalMsj, setModalMsj] = useState('');
     const [bgImage, setBgImage] = useState(null);
 
     const dataService = new DataService();
@@ -40,23 +41,23 @@ const ConfiguracionScreen = () => {
 
     const handleSave = async () => {
 
-      const profile = await dataService.getData();
-      profile.PhoneNumber = phoneNumber;
-      profile.VideoUrl = videoUrl;
-      profile.MusicUrl = musicUrl;
-      await dataService.saveData(profile)
+      const perfil = await dataService.getData();
+      perfil.PhoneNumber = phoneNumber;
+      perfil.VideoUrl = videoUrl;
+      perfil.MusicUrl = musicUrl;
+      await dataService.saveData(perfil)
         if (phoneNumber && videoUrl && musicUrl) {
-            if (await dataService.saveData(profile) == true) 
+            if (await dataService.saveData(perfil) == true) 
             {
                 
-                setModalMessage(MessageConstants.MSG_SAVED_DATA);
+                setModalMsj(msjConstants.MSG_SAVED_DATA);
                 setSuccess(true)
             } else {
-                setModalMessage(MessageConstants.MSG_SAVED_FAILED);
+              setModalMsj(msjConstants.MSG_SAVED_FAILED);
                 setSuccess(false)
             }
         } else {
-            setModalMessage(MessageConstants.MSG_INCOMPLETE_FIELDS);
+          setModalMsj(msjConstants.MSG_INCOMPLETE_FIELDS);
             setSuccess(false)
         }
         setVisibleModal(true)
@@ -87,7 +88,7 @@ const ConfiguracionScreen = () => {
                 editable
                 style={styles.input}
                 value={phoneNumber}
-                placeholder="Enter emergency phone number"
+                placeholder="Ingresar número de teléfono de emergencia"
                 keyboardType="numeric"
                 onChangeText={input => setPhoneNumber(input)}
                 />
@@ -96,7 +97,7 @@ const ConfiguracionScreen = () => {
                 editable
                 style={styles.input}
                 value={videoUrl}
-                placeholder="Enter a video URL"
+                placeholder="Ingresar URL de música"
                 onChangeText={input => setUrlVideo(input)}
                 />
                 <Text style={[styles.textLabel]}>Music URL</Text>
@@ -104,12 +105,12 @@ const ConfiguracionScreen = () => {
                 editable
                 style={styles.input}
                 value={musicUrl}
-                placeholder="Enter a music URL"
+                placeholder="Ingresar URL de música"
                 onChangeText={input => setUrlMusic(input)}
                 />
-                <ReusableButton event={handleSave} style={styles.button}  text='enter data'/>
+                <BotonReusable event={handleSave} style={styles.button}  text='enter data'/>
             </ImageBackground>
-            <ModalMessage msg={modalMessage} modalVisible={visibleModal} setVisibleModal={setVisibleModal} success={success} />
+            <ModalMsj msg={modalMsj} modalVisible={visibleModal} setVisibleModal={setVisibleModal} success={success} />
         </SafeAreaView>
     );
 };
@@ -153,4 +154,4 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
   });
-export default Configuration;
+export default ConfiguracionScreen;

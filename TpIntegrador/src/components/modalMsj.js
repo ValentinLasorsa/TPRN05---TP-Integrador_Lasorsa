@@ -2,7 +2,7 @@ import { View, Text, Vibration, StyleSheet, Modal, Pressable } from 'react-nativ
 import React from 'react'
 import { useEffect } from 'react';
 
-const ModalMessage =({ msg, modalVisible, setVisibleModal, success }) =>{
+const ModalMsj =({ msg, modalVisible, setVisibleModal, success }) =>{
 
     useEffect(() => {
         if (modalVisible) {
@@ -106,4 +106,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ModalMessage
+export default ModalMsj

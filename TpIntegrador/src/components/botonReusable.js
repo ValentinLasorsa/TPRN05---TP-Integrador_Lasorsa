@@ -1,10 +1,7 @@
 import React from "react";
 import {TouchableOpacity, Text, StyleSheet } from "react-native";
 
-/*
-<Button title={text} onPress={onPress} style={[styles.buttonContainer, style]} />
-*/
-const ReusableButton = ({ event, style, text }) => {
+const botonReusable = ({ event, style, text }) => {
 
     const handleButton = () => {
         event();
@@ -20,12 +17,12 @@ const ReusableButton = ({ event, style, text }) => {
 
 const styles = StyleSheet.create({
     buttonContainer: {
-        width: '40%',
-        backgroundColor: 'rgb(33,150,243)',
+        width: '60%',
+        backgroundColor: 'rgb(25,170,250)',
         borderRadius: 2,
         paddingVertical: 12,
-        marginTop: 15,
-        marginBottom: 15,
+        marginTop: 16,
+        marginBottom: 16,
         paddingBlock: 1,
         paddingInline: 6,
     },
@@ -39,4 +36,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ReusableButton ;
+export default botonReusable ;

@@ -2,7 +2,7 @@ import { Text, StyleSheet, SafeAreaView, ImageBackground} from 'react-native'
 import React, { useState, useEffect, useRef } from 'react';
 import { Video, ResizeMode, Audio } from 'expo-av';
 import DataService from '../Services/DataService';
-import ReusableButton from '../Components/ReusableButton';
+import BotonReusable from '../components/botonReusable';
 
 
 const MultimediaScreen = () => {
@@ -26,7 +26,6 @@ const MultimediaScreen = () => {
           setBgImage(null)
         }
     }
-  
     let loadMultimedia = async () => {
       if (await dataService.getData()) {
         let profile = await dataService.getData();
@@ -49,7 +48,7 @@ const MultimediaScreen = () => {
             console.log('Unloading Sound');
             await sound.pauseAsync();
             await sound.unloadAsync();
-            setSound(null); // Clear the sound object from state
+            setSound(null); 
           } else {
             setIsSoundReproducing(true);
             console.log('Loading Sound');
@@ -58,7 +57,7 @@ const MultimediaScreen = () => {
                 { uri: musicUrl },
                 { volume: 0.8 }
               );
-              setSound(audioSound); // Set the loaded sound in the state
+              setSound(audioSound); 
               await audioSound.playAsync();
             } else {
               console.log('No music URL provided.');
@@ -66,8 +65,6 @@ const MultimediaScreen = () => {
           }
         } catch (error) {
           console.error('Error occurred while handling sound:', error);
-          // Add specific error handling or log messages as needed
-          //console.error('Music URL:', musicUrl);
         }
       };
   
@@ -105,7 +102,7 @@ const MultimediaScreen = () => {
                 isLooping
                 onPlaybackStatusUpdate={status => setStatus(() => status)}
               />
-              <ReusableButton event={() => status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()} text={status.isPlaying ? 'Pause video' : 'Play video'} style={styles.button1} />
+              <BotonReusable event={() => status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()} text={status.isPlaying ? 'Pause video' : 'Play video'} style={styles.button1} />
               
             </>
           ) : (
@@ -115,7 +112,7 @@ const MultimediaScreen = () => {
           )}
           {musicUrl ? (
             <>
-              <ReusableButton event={reproduceSound} text={isSoundReproducing ? 'Pause audio' : 'Play audio'} style={styles.button2} />
+              <BotonReusable event={reproduceSound} text={isSoundReproducing ? 'Pause audio' : 'Play audio'} style={styles.button2} />
             </>
           ) : (
             <>
